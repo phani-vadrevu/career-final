@@ -1,0 +1,36 @@
+
+\section{Thrust-3: Real-time scam call detection}
+\label{sec:thrust_three}
+
+
+\begin{enumerate}
+\item Fine tuning: LoRA~\cite{HuSWALWWC22}, QLoRA~\cite{DettmersPHZ23}, QA-LoRA~\cite{XuXG0CZC0024}
+\item Early detection: Consider adapting this previous work on having various detection deadline if possible~\cite{LiuW18}.
+\item Early detection: Prior works that in other domains that balance between early detection and accuracy~\cite{GuptaGBD20,BilskiJ23,RingelCFER24}
+\item Early detection: Using RL for early detection~\cite{HartvigsenSKR19,abs-2502-06584}
+\item We expect the defenses we propose to progressively have higher confidence as the recorded data improves. 
+\item \cite{PrasadBMR20} uses a audio fingerprint algorithm called Echoprint~\cite{ellis2011echoprint}. Perhaps, we can attempt using the same as scammers follow the scripts. We can also look into voice biometrics etc.
+\item \cite{KotropoulosS14,KritsiolisK24} use speech and non-speech signals to identify mobile phones. Note that the second paper is from 2024.
+\item ofcourse pindrop~\cite{BalasubramaniyanPAHT10}
+\item Final part: Beyond just the audio content, we will investiagte, the actions recorded on the devices such as the system events (including UI events) as well as network events such as related to the remote desktop sharing service requests 
+\end{enumerate}
+
+
+\textbf{Open Challenge.} How can I evaluate False positives? This is very difficult... perhaps at a regional-level we can have highly tailored allowlists and seek out a phased-deployment. Such a tailored allowlist allows us to realistically make our tool deployable. Further, we can use toll-free number lists such as this: https://tollfreenumber.org/directory/ to further improve our TFN coverage. All these will make it easy for us to ``mark'' false positive internally without disrupting the calls for our participants. We plan to have this be deployed over an extend period of time gathering important information.
+
+\textbf{Open Challenge.} Unlike regular problems such as web-phishing this can be more relaxed, by increasing the threshold, we can wait for the system to obtain increasing confidence before asserting this as a phishing call. One way to do this is to ``break'' the phone call transcripts into parts to make sure the system is honing on all individual parts. 
+
+\subsection*{Allowlist creation}
+
+Cite BrandPhish DynaPhish other phishing papers. These papers provide a ``brand-domain'' connection. OUr T-1/T-2 data provides brands that are targeted. We can then develop a site-miner to obtain scrap phone numbers from these sites. Perhaps, even use automated web browsing agents? (Mind2Web etc.) similar to how the GaTech folks did for example. Finally, while existing telephony auth certifications only support ~\cite{ReavesBAVTS17} phone numbers, we can use all this to support ``brand'' information too. This really helps to establish outgoing calls esp. in the context of MITM attacks as cited in ~\cite{ReavesBAVTS17}.
+
+Some notes:
+
+1. Best buy also does benign tech support: https://www.bestbuy.com/services/remotesupport 
+
+2. Some toll-free number datasets? https://www.tollfreenumber.org/toll-free-co.html This also includes links to refs from govt. sites: https://tollfreenumber.org/directory/
+
+3. 
+
+Of course, all this also helps in mitigating false positives which is the primary motive. 
+

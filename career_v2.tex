@@ -1,0 +1,238 @@
+% NSF proposal generation template style file.
+% based on latex stylefiles written by Stefan Llewellyn Smith and
+% Sarah Gille, with contributions from other collaborators.
+%
+\documentclass{proposalnsf}
+ 
+\usepackage{comment}
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[hyphens]{url}
+%\usepackage{cite}  - cite package clashes with natbib package used by proposalnsf.cls
+\setcitestyle{numbers,comma,square}
+%\usepackage[colorlinks=false]{hyperref}
+% Source: https://tex.stackexchange.com/questions/823/remove-ugly-borders-around-clickable-cross-references-and-hyperlinks
+\usepackage[hidelinks]{hyperref}
+
+
+\usepackage{wrapfig}
+\usepackage[export]{adjustbox}
+
+\usepackage[font={small,it},labelfont=bf]{caption}
+
+\usepackage{enumitem}
+\setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+
+\usepackage{amsmath}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+
+\usepackage{cleveref}   % package to refer to reference multiple labels with range option
+% Using the section symbol for both \cref and \Cref commands
+\crefname{section}{\S}{\S\S}
+\Crefname{section}{\S}{\S\S}
+
+
+\usepackage{pifont}  % for circled numbers in text refering to the figure
+\usepackage{xspace}
+
+\usepackage[table]{xcolor}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{makecell}  % awesome package that makes life so easy when making tables!
+\definecolor{lightgray}{gray}{0.9}  % adjust color - used for supporting alternate table colors
+
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
+
+
+\usepackage{pgfgantt}
+
+
+% Use this package for circles in text.
+% https://mirror.las.iastate.edu/tex-archive/macros/latex/contrib/circledsteps/circledsteps-manual.pdf
+\usepackage{circledsteps}
+\pgfkeys{/csteps/inner ysep=2pt}
+\pgfkeys{/csteps/inner xsep=0.5pt}
+\pgfkeys{/csteps/inner color=white}
+\pgfkeys{/csteps/fill color=black}
+
+\graphicspath{{images}}
+
+
+%%% Saving Space %%%
+\usepackage{times}
+\usepackage[subtle]{savetrees}
+\usepackage[noindentafter]{titlesecfix}
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{2pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{1pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+%%% ============ %%%
+
+
+\usepackage{wrapfig}
+
+
+\usepackage{scalerel}
+
+
+\usepackage{xcolor}
+\newif\ifshowtodos
+\showtodostrue  % comment this line out to hide TODOs
+
+\newcommand{\todo}[1]{%
+  \ifshowtodos
+    \textcolor{red}{\textbf{[TODO: #1]}}%
+  \fi
+}
+
+
+% See this file for a set of pre-defined journal abbreviations
+\input{journal-abbreviations.tex} 
+\newcommand{\degrees}{$\!\!$\char23$\!$}
+\renewcommand{\refname}{\centerline{References cited}}
+% This handles hanging indents for publications
+\def\rrr#1\\{\par
+\medskip\hbox{\vbox{\parindent=2em\hsize=6.12in
+\hangindent=4em\hangafter=1#1}}}
+\def\baselinestretch{1}
+%%%%%%
+
+\newcommand{\phani}[1]{\textcolor{orange}{[(Phani): #1]}}
+\newcommand{\BfPara}[1]{\vspace{1mm}{\noindent\bf#1.}\xspace\xspace}
+\newcommand{\eg}{e.g.,\xspace}
+\newcommand{\ie}{i.e.,\xspace}
+\newcommand{\etc}{etc.\xspace}
+\newcommand{\tsref}[1]{\textsection\ref{#1}\xspace}
+
+
+\newcommand{\sysname}{{\textsc{C-frame}}\xspace}
+
+\newcommand{\captcha}{{\textsc{captcha}}\xspace}
+\newcommand{\Captcha}{{\textsc{Captcha}}\xspace}
+
+\graphicspath{{images/}}
+
+\usepackage{tikz}
+
+\newcommand*\blackcircled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle, fill=black, text=white, inner sep=1pt] (char) {\footnotesize #1};}}
+
+
+\DeclareRobustCommand{\bino}{%
+  \begingroup\normalfont
+  \includegraphics[height=1.3\fontcharht\font`\B]{binoculars.pdf}%
+  \endgroup
+}
+
+% Source: https://tex.stackexchange.com/questions/139143/how-to-set-an-inline-figure-matching-the-text-height
+\DeclareRobustCommand{\binoone}{%
+  \begingroup\normalfont
+  \includegraphics[height=1.1\fontcharht\font`\B]{bino1.pdf}%
+  \endgroup
+}
+
+\DeclareRobustCommand{\binotwo}{%
+  \begingroup\normalfont
+  \includegraphics[height=1.1\fontcharht\font`\B]{bino2.pdf}%
+  \endgroup
+}
+
+\DeclareRobustCommand{\binothree}{%
+  \begingroup\normalfont
+  \includegraphics[height=1.1\fontcharht\font`\B]{bino3.pdf}%
+  \endgroup
+}
+
+\DeclareRobustCommand{\binofour}{%
+  \begingroup\normalfont
+  \includegraphics[height=1.1\fontcharht\font`\B]{bino4.pdf}%
+  \endgroup
+}
+
+\DeclareRobustCommand{\binofive}{%
+  \begingroup\normalfont
+  \includegraphics[height=1.1\fontcharht\font`\B]{bino5.pdf}%
+  \endgroup
+}
+
+
+\begin{document}
+%\bstctlcite{bstctl:nodash}
+
+
+%\renewcommand{\thepage} {B--\arabic{page}}
+\pagenumbering{gobble}
+
+\input{summary}
+
+\newpage
+
+
+
+% reset page numbering to 1.  This is helpful, since the text can only
+% be 15 pages, and reviewers will want to believe we've kept within
+% those limits
+
+%\pagenumbering{arabic}
+%\renewcommand{\thepage} {D--\arabic{page}}
+\pagenumbering{gobble}
+
+\newpage
+
+\noindent{\Large \bf PROJECT DESCRIPTION}
+
+\input{introduction}
+%\input{bg_prelim}
+\input{related_work}
+\input{thrust_1}
+\input{thrust_2}
+\input{thrust_3}
+\input{edu_plan}
+%\input{research_plan}
+\input{evaluation_and_discussion}
+\input{broaderimpact}
+\input{plan_of_work}
+\input{prior_results}
+% %%\input{prelim_study}
+% \input{measurement}
+% \input{cloaking_vectors}
+% \input{defense}
+%\input{system_description}
+
+% \input{evaluation}
+
+
+\newpage
+%\pagenumbering{arabic}
+%\renewcommand{\thepage} {E--\arabic{page}}
+
+\bibliographystyle{IEEEtran}
+\bibliography{bibl}
+
+%\newpage
+%\pagenumbering{arabic}
+%\renewcommand{\thepage} {H--\arabic{page}}
+%\input{data_management.tex}
+
+%\newpage
+%\pagenumbering{arabic}
+%\renewcommand{\thepage} {I--\arabic{page}}
+%\input{personnel.tex}
+
+%\newpage
+%\pagenumbering{arabic}
+%\renewcommand{\thepage} {I--\arabic{page}}
+%\input{collaboration_plan.tex}
+
+%\newpage
+%\pagenumbering{arabic}
+%\renewcommand{\thepage} {J--\arabic{page}}
+%\input{bpc.tex}
+
+
+\end{document}
+

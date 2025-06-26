@@ -1,0 +1,79 @@
+\section{Prior Related Work}
+\label{sec:related_work}
+
+
+Flow:
+
+\begin{enumerate}
+\item Overview of scam measurement/detection works done so far. 
+\end{enumerate}
+Matt's work on Email scam baiting~\cite{ChenWE23}. They cited this position paper as an approach for why an ``active defense'' approach is necessary~\cite{CanhamT22}.
+Should this be a cite: ~\cite{BajajE23}
+
+
+
+Some this might have to be moved to Intro section.
+
+
+%LET'S HAVE A FIGURE THAT CONVEYS THIS POINT ABOUT HOW TSS SCAMS WORK PICTORIALLY AND HOW EACH SOLUTION TACKLES ONE PART OF THE PROBLEM WITHOUT ADDRESSING THE CORE!!!! THIS IS GOING TO BE A COMPLICATED FIGURE BUT UBER-COOL. 
+
+% THE FIGURE NEEDS TO SHOW THE TARGET SPACE THAT WE ARE ULTIMATELY AIMING TO MAKE AN IMPACT AT (WITH THRUST-3). BUT, THIS HASN'T BEEN REALIZED YET. THE LIMITED ONES THAT ATTEMPT TO DO THIS ARE BASED ON SYNTHETIC DATA WHICH ALSO CANNOT BE EVALUATED DUE TO LACK OF REALWORD DATA:
+THESE ARE THE LIMITED AND ONLY ISE ATTACK DETECTION WORKS THAT I KNOW OF SO FAR:
+~\cite{DerakhshanHB21,}
+~\cite{Zhao0LY018}
+
+~\cite{ocleicniks2025real} LLM-based scam call detection, similar to the CHI 25 EA paper. However, only 15 fraud calls sourced from YouTube videos. Eval metrics are not good (more one shot kind)
+
+% REBUTTAL 1.0 (NEXT DAY, LOL): MAY BE NOT? AT LEAST NOT IN INTRO. THE READER COMES WITH AN EXPECTATION THAT THE FIRST FIGURE THEY SEE IS A REPRESENTATION OF WHAT THE PI IS GONNA DO. INSTEAD, THEY END UP WITH A FIGURE ABOUT WHAT HAS ALREADY BEEN DONE. WHILE IT MIGHT CONVEY THAT THE PI KNOWS WHAT THEY ARE TALKING ABOUT, I THINK THIS IS THE WRONG PLACE TO SHOW OFF THIS THING. THIS DISTRACTS THEM FROM THE MAIN POINT. FURTHER, WHAT IS THE USE OF GIVING TWO EXAMPLES? IF THE FIGURE WILL KEEP BEATING UP ON ON EXAMPLE. IF NECESSARY, THIS "SHOW OFF" CAN BE DONE IN RELATED WORK SECTION. BUT, EVEN THAT HAS TO BE CONSIDERED CAREFULLY AS THIS IS A WASTAGE OF CRUCIAL SPACE. WE'LL SEE BUT DEFINITELY NOT HERE.
+
+In absence of data to detect ISE attacks in channel, existing academic work has instead focused only on detecting ``specific sources'' of these ISE attacks, resulting in solutions which each only plugs one small hole in the many different ways a scammer can initiate ISE attack communication with a victim to ``partially solve the issue'': web-based ad networks~\cite{YangALPL23,seacma,SubramaniYSVLP20}, detecting specific types of websites that either host~\cite{MiramirkhaniSN16, SrinivasanKMANA18, tasr, abs-2502-10110} or lead to~\cite{RafiqueGJHN16,VissersJN15,KharrazRK18} ISE attacks. Other works have focused on  
+%Sports streaming~\cite{RafiqueGJHN16}, survey sites~\cite{KharrazRK18}, parked domain sites~\cite{VissersJN15},
+
+
+Very few works tried to do T2-related work -- but without a work driven by T1, it is difficult to make this possibel. For example, Closely related: ~\cite{SahinRF17}, ~\cite{}
+
+
+
+\begin{enumerate}
+    \item Mobile honeypots ~\cite{GuptaSBA15,BalduzziGGGA16}, long-term measurements using honeypots~\cite{PrasadBMR20}
+    \item  super interesting VoIP server honeypot: ~\cite{MondejarMS22}. I don't think this is related to above - but need to read more later.
+    \item Robocalls - SoK paper on different defenses (pre 2016) against Robocalls.~\cite{TuDZA16}. You can break them down and cite individually to if need be. 
+    \item Robocalls - authentication based defense ~\cite{ReavesBAVTS17}, ~\cite{DuY00KL23}
+    \item Robocalls - mediated interaction ~\cite{PanditSPAY23}. A much more previous work (???) proposed a similar ``turing test'' to weed out robocalls~\cite{QuittekNTSBE07}
+    \item Probably related prior work? but need to look at this later: ~\cite{PanditLPA21}. 
+    \item Robocalls - conducted a telephony phishing experiment with 3000 users and some cases had more than 10\% fall rate (of giving up SSNs! - damnnn).~\cite{TuD0A19}
+    \item Robocall warning app UIs user study ~\cite{ShermanBMGRT20}
+    \item Robocalls - SoTA and probably the only work (??) in collecting robocall dataset. Collected more than 230k robocall scripts and performed qual/quant analysis over it. Interesting there were some ``call back'' options here and TSS subsection that all intersects with our work too ~\cite{PrasadDRR23}.
+    \item a hybrid ML system that looks at network-level things such as caller out-degree as well as callee contacts to make a mal/not detrminiation~\cite{LiXLRWCZYS18}., similarly, ~\cite{LiuRPDS18,XingYWZD20}
+    \item other ml system for detecting fraud calls ~\cite{KaleKMD21}
+\end{enumerate}
+
+WHILE IN OTHER CASES, CONTEXTUAL DATA SUCH AS THE PHISHING WEBSITE, or PHISHING EMAIL or SMS can be forwarded and data can be stored, telephony conversational data is highly private - and hence detection models cannot be easily created. 
+% THE ABOVE IS SILLY - EVEN EMAIL CONVERSATIONAL DATA AND SMS DATA IS PRIVATE. IT IS JUST THAT IT IS EASIER TO "REPORT".
+
+\begin{enumerate}
+\item honeypots for a 2010 MSN messenger to collect phishing urls~\cite{PolakisPMA10}
+\item CHI EA on detecting scam calls using LLMs (very small datasets) ~\cite{ShenYZLNF25}
+\item Detecting scam calls based on voice biometrics ~\cite{BalasubramaniyanPAHT10}
+\item Detection outgoing call redirection malware (vishing malware) using run-time permissions ~\cite{KimKWKS22,LeeKK25}
+\item Smishing user study ~\cite{RahmanTWN23}
+\item Smishing detection - 32 million message dataset from a company (they said ``no public data'') ~\cite{Liu0LLDS21}. 
+\item Other scam detection using ML: fraudulent shopping sites - ML~\cite{BitaabCOLWAWBSD23,BitaabKLOK0A0BS25} and LLMs ~\cite{BitaabKLMO0BSD25}
+\item \cite{HanKB16} In this work, honey servers are are created - which are compromised to host phishing kits! Then, these kits are ethically modified to study real-world phishing attacks in the wild!
+\item another smishing paper~\cite{NahapetyanPCOLKR24} based on data from public sms gateways.
+
+\end{enumerate}
+
+
+While there exist a myriad ways to reach. 
+
+Some industry players have even gone on to solve some issues such as ideas by Google to mitigate the flood of web push notifications 
+(Google notifications, Google Microsoft chrome aggressive tss site blockers) - but this only strives to solve one of the several ways TSS attackers reach victims. and that too this came several years after first work showed this problem (2017 - agressive tss vs 2025 implementation) while sites have been shown to long since adapted to other methods. 
+
+
+\BfPara{SoKs/Survey papers}
+ 
+\begin{enumerate}
+    \item A pretty neat survey on social engineering attack tactics considered in empricial se attack research~\cite{BurdaAZ24}.
+    \item SoK paper on different defenses (pre 2016) against Robocalls~\cite{TuDZA16}. Also, this has some neat description of what makes telephony attacks difficult to defend against.
+\end{enumerate}

@@ -1,0 +1,104 @@
+
+\section{Thrust-2: Automated scam baiting}
+\label{sec:thrust_two}
+
+
+
+
+(1) This is in itself a very good defensive tool as it wastes scammer time reducing the RoI overall! Alternative solutions such as blocking sites only work for some subset of "gateways" currently. This is esp. important given the reluctance of phone number providers to take action.  (2) Further, this tool also helps collect evidence of cybercrime for law enforcement to pursue take-down actions.  Pitch it that way please (coz it is!)
+
+\BfPara{Engineering useful stuff}
+\begin{enumerate}
+    \item First, read this properly to understand deployment issues: \cite{SahinRF17} Important deployment setup. This one also: ~\cite{SahinFGA17}. Read this too: ~\cite{ReavesBT16} to understsand how VOIP etc. work. This too: ~\cite{TuDZA16}. Phoneypot also helps with setup~\cite{GuptaSBA15}
+    \item very recent work in understanding audio content as well as speaking it in naturalistic ways~\cite{abs-2412-02612,abs-2407-10759}. 
+    \item For evaluation: LiveBench~\cite{WhiteDRPF0SJSDS25} describes the challenge of how to handle the issue of benchmarks given that some might have access to data already. This might be relevant to us to (1) either directly use or (2) be inspried for similar approaches to handle any bias issues when handling the comparison. We also need to figure out which one we are going to use llama, deepseek, mistral, qwen (alibaba), gemma (google) or what? 
+\end{enumerate}
+
+
+\BfPara{Random notes}
+\begin{enumerate}
+\item In this work, talking to the scammers helped them find out that they ask victims to not tell the clerks that they are here for Tech support payments as this will result in a large tax. This is an evasion tactic that only came out after talking to scammers. \cite{ayumu2024threat}   [Question to self: will it make better sense in the education seciton??? or here as motivation? We are already motivated by the lack of data...]
+\item IMPORTANT: HAVE A SECTION that discusses Adversarial actions performed by attackers as a result of the changes that we do.  For example -1: ~\cite{KumariAPRAJS25} to detect deep fake attacks Will it make scam baiting less effective. (1) It doesn't increase the cost for us - we just need to make more calls (2) their reaction means that we have had an effect; this essentially means we already got a lot of usable data which will be used for defense.
+\item (This can go to disco section??) For example-2, using LLMs to do the complete talk-part? Given that LLMs are already shown as being adopted (\eg LLMs are already shown as being used by malicious services (\eg ~\cite{LinCL024}).). But, any such adoption will require intense evaluation which we don't think the scammers can afford to do. As every lost victim is a loss of revenue for them. Further, the scammers are the ``driving party'' as opposed to the victim who is the ``driven party'' hence the complexity is much harder for them. Further, they need to adopt this to change quickly - for example, if a particular scam is being detected (let's say the ingress points), then, they need to move to another one which makes it more difficult. 
+
+\item  ETHICS: The PI sought an approval from his current university since the old one was from a different university. We pay close attention to the ethics for this experiment. The PI has already sought an IRB approval from the university where the committee agreed unanimously about eliminating debriefing to protect retribution risks to the investigators. (This thrust will involve performing controlled deception-based experiments with human subjects in which the after-study debriefing and consent procedures will be eliminated to protect researchers from retribution attacks similar to the preliminary work from both the PI~\cite{honeytweets} and others in this space~\cite{MiramirkhaniSN16}.)Further, the committee also confirmed the legality of the experiemnt given the domicile of Louisiana which is a one-party state for performing the recordings. F 
+
+\end{enumerate}
+
+
+\textbf{Text from DHS Grant:}
+
+\textbf{System engineering.}. Various components that we need to develop for supporting
+infrastructure are shown in Figure 4. The first of these is the VoIP system which will be used to place
+calls to the scammers using the phone numbers obtained from the TSS Site Hunter module of Task-1. We
+will utilize an open-source VoIP gateway such as Asterisk [25] which will be connected to a suitable SIP
+trunking provider to make outbound calls based on recommendations we receive from scam baiters during
+our user studies. Second, we will be configuring honey VMs (Windows and Android) which will be setup
+to look realistic to scammers. For this, we will again follow recommendations from the scam baiting
+community. But, some expected steps are (1) to configure them to dynamically create fake files and
+install apps to make them look “worn out” [26] (2) to hide signs of VM automation [27]. We will also
+configure the VMs to record all network data and screen recordings for later forensic analysis.
+Furthermore, after the scammer connects to the VM, they will eventually solicit the AI victim to open
+their bank or P2P payment accounts (on the web or mobile platform) and transfer money to their domestic
+launderer. As this is a critical step to gain forensic intelligence, we will build honey sites and apps that
+clone popular financial applications and make them available on a local server. Using a virtual DNS
+resolver that resolves the bank domains to the local server and self-signed certificates pre-installed on the
+VMs will allow us to make the URLs of these banks look fully legitimate to the scammers.
+
+
+Another key implementation aspect is enabling the orchestration of client VMs. To achieve this, we will
+explore the use of accessibility frameworks, such as “Microsoft UI Automation” for Windows, or
+specialized tools like Appium [28] and ADB [29], to respond to the scammer’s directives. These tools
+will be utilized to support keystrokes, mouse movements, and touchscreen taps, as per the action
+vocabulary collected during the observation studies in Task-2. To make the mouse movements look
+“human-like”, we will utilize Bézier curve-based models [30, 31]. The VM orchestration unit will also
+have ability to take screenshots of the VM surreptitiously to provide context to the “Action Agent”.
+
+
+\textbf{AI components.} The four AI components illustrated in Figure 4 are essential for the operation
+of the automated scam baiter. Among them, the speech recognizer is the most straightforward, and we
+plan to utilize open-source tools such as OpenAI’s Whisper ASR [32, 33] for real-time transcription of
+scammer dialogue. We will assess its performance using recorded samples from Task-2 and apply any
+necessary fine-tuning, including audio preprocessing (e.g., noise reduction). In contrast, speech synthesis
+is more complex, as it must convincingly replicate the voice of the target demographic—older American
+adults—to engage TSS scammers. For this, we plan to use commercial APIs that offer extensive
+customization options. For instance, Google Speech APIs [34] provide access to hundreds of voices with
+adjustable pitch, volume, speaking rate, and sampling rate. These options will be explored during Task-
+2’s co-design workshop with scam baiters. A preliminary live test using a commercial speech engine has
+already maintained a two-minute conversation with TSS scammers, demonstrating promising results.
+
+At the core of the proposed scam baiter is the conversation agent, which processes transcribed scammer
+speech and generates appropriate responses to sustain engagement. Additionally, this agent determines
+whether an utterance requires a verbal reply or an “action” response. For example, the question “What is
+your address?” warrants a verbal response, whereas a command like “Click on the blue icon” necessitates
+an action, which is thus forwarded to the second agent. To realize this agent, we plan to extend an opensource
+pre-trained model (e.g., Llama 3.3) using advanced fine-tuning techniques [35, 36] and recorded
+conversations from previous tasks. The action agent will also be trained similarly to recognize and
+respond to pre-recorded scammer cues. Additionally, it will incorporate contextual information from the
+current UI state of the desktop or mobile VM, allowing it to translate action-related utterances into
+executable instructions (e.g., specific co-ordinates) for the VM orchestrator.
+
+
+\textbf{Staged development and evaluation.} The preliminary stages of development will utilize the
+recorded conversations in Task-2 for offline evaluation. After high fidelity is achieved by all the
+individual components over this data, we will then conduct live monitored pilot tests where our team can
+proctor the conversations to identify bugs. For example, if a scam baiting conversation ends midway, the
+data from that conversation will be used to investigate the issue, make fixes and subject the updated
+version for more proctored testing. This iterative pilot testing and refinement cycle will continue until the
+conversations reach their logical end points of scammers’ attempting money transfer actions consistently.
+At this point, the tool will be launched for longitudinal deployment. Metrics such as sustained
+conversation length and conversational milestones reached will be used to continuously evaluate the
+quality of the tool. The ultimate success of this framework is determined by the amount of valuable
+forensic intelligence such as remote IP addresses, remote control service session IDs, money launderer
+information and voice biometrics that can be captured. At the same time, sustained conversation time is
+also a useful metric as the tool can be used as a scalable scam baiting tool to make the scams ineffective.
+
+\subsection{Collected data analysis}
+
+Task-2 will involve qualitative analysis of scam transcripts. The goal is to systematize the working of ISE attacks accurately based on collected empirical data. Perhaps, this can go on in an online manner as this will feedback for better evaluation of the automated scam baiting tool. For example, when we get some good amount of data, we chart out milestones for a scam -- we can then go ahead and use them for making evaluation critieria.
+
+ALL THIS MAKES FOR A SUPER INTERESTING FIGURE FOR T2!!
+
+\BfPara{QUal analysis: Systematizing the scams}
+
+\BfPara{Evaluation} Using systematization outputs for evaluationg the auto scam baitining tool in an online phased basis. 
