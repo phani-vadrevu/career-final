@@ -18,7 +18,7 @@
 \BfPara{Random notes}
 \begin{enumerate}
 \item In this work, talking to the scammers helped them find out that they ask victims to not tell the clerks that they are here for Tech support payments as this will result in a large tax. This is an evasion tactic that only came out after talking to scammers. \cite{ayumu2024threat}   [Question to self: will it make better sense in the education seciton??? or here as motivation? We are already motivated by the lack of data...]
-\item IMPORTANT: HAVE A SECTION that discusses Adversarial actions performed by attackers as a result of the changes that we do.  For example -1: ~\cite{KumariAPRAJS25} to detect deep fake attacks Will it make scam baiting less effective. (1) It doesn't increase the cost for us - we just need to make more calls (2) their reaction means that we have had an effect; this essentially means we already got a lot of usable data which will be used for defense.
+\item IMPORTANT: HAVE A SECTION that discusses Adversarial actions performed by attackers as a result of the changes that we do.  For example -1: ~\cite{KumariAPRAJS25,BlueWAGVOBT22} to detect deep fake attacks Will it make scam baiting less effective. (1) It doesn't increase the cost for us - we just need to make more calls (2) their reaction means that we have had an effect; this essentially means we already got a lot of usable data which will be used for defense.
 \item (This can go to disco section??) For example-2, using LLMs to do the complete talk-part? Given that LLMs are already shown as being adopted (\eg LLMs are already shown as being used by malicious services (\eg ~\cite{LinCL024}).). But, any such adoption will require intense evaluation which we don't think the scammers can afford to do. As every lost victim is a loss of revenue for them. Further, the scammers are the ``driving party'' as opposed to the victim who is the ``driven party'' hence the complexity is much harder for them. Further, they need to adopt this to change quickly - for example, if a particular scam is being detected (let's say the ingress points), then, they need to move to another one which makes it more difficult. 
 
 \item  ETHICS: The PI sought an approval from his current university since the old one was from a different university. We pay close attention to the ethics for this experiment. The PI has already sought an IRB approval from the university where the committee agreed unanimously about eliminating debriefing to protect retribution risks to the investigators. (This thrust will involve performing controlled deception-based experiments with human subjects in which the after-study debriefing and consent procedures will be eliminated to protect researchers from retribution attacks similar to the preliminary work from both the PI~\cite{honeytweets} and others in this space~\cite{MiramirkhaniSN16}.)Further, the committee also confirmed the legality of the experiemnt given the domicile of Louisiana which is a one-party state for performing the recordings. F 
@@ -48,7 +48,7 @@ VMs will allow us to make the URLs of these banks look fully legitimate to the s
 
 Another key implementation aspect is enabling the orchestration of client VMs. To achieve this, we will
 explore the use of accessibility frameworks, such as “Microsoft UI Automation” for Windows, or
-specialized tools like Appium [28] and ADB [29], to respond to the scammer’s directives. These tools
+specialized tools like Appium [28] and ADB [29], to respond to the scammer's directives. These tools
 will be utilized to support keystrokes, mouse movements, and touchscreen taps, as per the action
 vocabulary collected during the observation studies in Task-2. To make the mouse movements look
 “human-like”, we will utilize Bézier curve-based models [30, 31]. The VM orchestration unit will also
@@ -57,7 +57,7 @@ have ability to take screenshots of the VM surreptitiously to provide context to
 
 \textbf{AI components.} The four AI components illustrated in Figure 4 are essential for the operation
 of the automated scam baiter. Among them, the speech recognizer is the most straightforward, and we
-plan to utilize open-source tools such as OpenAI’s Whisper ASR [32, 33] for real-time transcription of
+plan to utilize open-source tools such as OpenAI's Whisper ASR [32, 33] for real-time transcription of
 scammer dialogue. We will assess its performance using recorded samples from Task-2 and apply any
 necessary fine-tuning, including audio preprocessing (e.g., noise reduction). In contrast, speech synthesis
 is more complex, as it must convincingly replicate the voice of the target demographic—older American
